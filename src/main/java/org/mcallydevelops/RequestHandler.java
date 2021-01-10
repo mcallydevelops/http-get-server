@@ -6,8 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RequestHandler implements Runnable {
 
@@ -45,7 +43,6 @@ public class RequestHandler implements Runnable {
             String server = "Server: McAlly\n";
             String contentLength = String.valueOf(response.getBytes().length);
             String contentType = "text/plain\n";
-//            String httpResponse = "HTTP/1.1 200 OK\r\n\r\n" + "Hello World!";
             String httpResponse = new StringBuilder(httpResponseStatus)
                     .append(server)
                     .append(contentLength)
@@ -59,19 +56,3 @@ public class RequestHandler implements Runnable {
         return response;
     }
 }
-
-//GET / HTTP/1.1
-//        Host: developer.mozilla.org
-//        Accept-Language: fr
-/*
-HTTP/1.1 200 OK
-Date: Sat, 09 Oct 2010 14:28:02 GMT
-Server: Apache
-Last-Modified: Tue, 01 Dec 2009 20:18:22 GMT
-ETag: "51142bc1-7449-479b075b2891b"
-Accept-Ranges: bytes
-Content-Length: 29769
-Content-Type: text/html
-
-<!DOCTYPE html... (here comes the 29769 bytes of the requested web page)
- */
